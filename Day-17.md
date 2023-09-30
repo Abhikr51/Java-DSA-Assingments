@@ -37,7 +37,7 @@ Output: "SLLIKSPW"
 //Solution
 public class ReverseString {
     public static void main(String[] args) {
-        String input = "Hello, World!";
+        String input = "PWSKILLS";
         String reversed = reverseString(input);
         System.out.println("Original String: " + input);
         System.out.println("Reversed String: " + reversed);
@@ -70,37 +70,46 @@ Output: "kniht eciwt"
 ```
 ```java
 //Solution
-public class ReverseStringPreserveSpace {
-	static void reverses(String str)
-	{
+public class ReverseWordCharacters {
+    public static void main(String[] args) {
+        String sentence = "Think Twice";
+        String reversedSentence = reverseWordCharacters(sentence);
+        
+        System.out.println("Original Sentence: " + sentence);
+        System.out.println("Reversed Sentence: " + reversedSentence);
+    }
 
-		char[] inputArray = str.toCharArray();
-		char[] result = new char[inputArray.length];
-		for (int i = 0; i < inputArray.length; i++) {
-			if (inputArray[i] == ' ') {
-				result[i] = ' ';
-			}
-		}
-		int j = result.length - 1;
-		for (int i = 0; i < inputArray.length; i++) {
+    public static String reverseWordCharacters(String sentence) {
+        String[] words = sentence.split(" ");
 
-			if (inputArray[i] != ' ') {
+        StringBuilder reversedBuilder = new StringBuilder();
 
-				if (result[j] == ' ') {
-					j--;
-				}
-				result[j] = inputArray[i];
-				j--;
-			}
-		}
-		System.out.println(String.valueOf(result));
-	}
+        for (String word : words) {
 
-	public static void main(String[] args)
-	{
-		reverses("pw skills courses are best");
-	}
+            String reversedWord = reverseString(word);
+            reversedBuilder.append(reversedWord).append(" ");
+        }
+
+        return reversedBuilder.toString().trim();
+    }
+
+    public static String reverseString(String str) {
+
+        char[] charArray = str.toCharArray();
+
+        int left = 0;
+        int right = charArray.length - 1;
+        while (left < right) {
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+            left++;
+            right--;
+        }
+        return new String(charArray);
+    }
 }
+
 ```
 ### 4. WAP to sort a String Alphabetically
 ```java
