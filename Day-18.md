@@ -69,16 +69,17 @@ public class Main {
 | Available throughout the lifetime of the program    | Available as long as the object exists                   |
 
 ### 8. Difference between static and non static members.
-| Static Members                 | Non-Static (Instance) Members  |
-|--------------------------------|-------------------------------|
-| Associated with                | Class                         |
-| Declaration                     | `static` keyword not used     |
-| Memory Allocation               | Allocated once for the class  | Allocated for each instance   |
-| Initialization                  | Initialized once (static block)| Initialized individually      |
-| Access                          | Accessed using the class name  | Accessed using the instance   |
-| Modification                    | Modified using the class name | Modified using the instance   |
-| Sharing Data                    | Shared among all instances    | Specific to each instance     |
-| Use Cases                       | Counters, global constants   | Object-specific attributes    |
-| Accessibility in Static Methods | Directly accessible           | Not directly accessible      |
-| Accessibility in Instance Methods| Accessed indirectly            | Accessed directly            |
-| Scope                           | Throughout the program        | As long as the object exists |
+| Aspect                              | Static Members                         | Non-Static (Instance) Members         |
+|-------------------------------------|----------------------------------------|----------------------------------------|
+| Associated with                      | Class (shared among all instances)     | Individual instances of the class     |
+| Declaration                           | Declared using the `static` keyword    | Declared without the `static` keyword |
+| Memory Allocation                     | Allocated memory once for the class    | Allocated memory separately for each instance |
+| Initialization                        | Initialized once (usually in a static block) | Initialized for each object (in constructors) |
+| Access                                | Accessed using the class name          | Accessed using an instance of the class |
+| Modification                          | Modified using the class name         | Modified using an instance of the class |
+| Sharing Data                          | Shared among all instances of the class | Specific to each object, not shared |
+| Use Cases                             | Counters, configuration values, global constants | Object-specific attributes, instance-specific settings |
+| Accessibility in Static Methods       | Can be used directly in static methods | Cannot be accessed directly in static methods |
+| Accessibility in Instance Methods     | Can be accessed indirectly via class name or object | Can be accessed directly using the instance |
+| Scope                                 | Available throughout the lifetime of the program | Available only as long as the object exists |
+
